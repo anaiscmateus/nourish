@@ -17,6 +17,7 @@ import path from "path"
 import cors from "cors"
 import passport from "passport"
 import { configurePassport } from "./config/passport.js"
+import { fileURLToPath } from 'url';
 
 // Use .env file in config folder
 dotenv.config({ path: "./.env" })
@@ -28,6 +29,7 @@ connectDB()
 const app = express()
 
 // Static folder
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Body parsing
