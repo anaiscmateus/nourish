@@ -28,16 +28,18 @@ connectDB()
 const app = express()
 
 // Static folder
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, './build')))
 
 // Body parsing
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+const FE_URL = process.env.FE_URL
+
 // Cors errors
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow requests only from port 3000 (NEED TO CHANGE WHEN WE HOST TO FE URL)
+    origin: FE_URL, // Allow requests only from port 3000 (NEED TO CHANGE WHEN WE HOST TO FE URL)
     methods: "GET,POST,PUT,DELETE", // Allow specific HTTP methods
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"] // Allow specific headers

@@ -1,5 +1,6 @@
 import Footer from "../components/Footer"
 import { useState, useEffect } from "react"
+const API_URL = process.env.API_URL
 
 export default function OurTeam() {
   const [getTeam, setGetTeam] = useState({ teamMembers: [] })
@@ -8,7 +9,7 @@ export default function OurTeam() {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await fetch(`http://localhost:8000/team`)
+        const response = await fetch(`${API_URL}/team`)
         const data = await response.json()
         setGetTeam(data)
       } catch (error) {
