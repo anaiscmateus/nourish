@@ -3,8 +3,6 @@ import CommunityWelcome from "../components/WelcomeCommunity"
 import Footer from "../components/Footer"
 import MessageBoardInteractive from "../components/MessageBoardInteractive"
 
-const API_URL = process.env.API_URL
-
 export default function Community() {
   const [posts, setPosts] = useState([])
 
@@ -14,7 +12,7 @@ export default function Community() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`${API_URL}/post/board`, {
+      const response = await fetch(`/post/board`, {
         credentials: "include"
       })
       if (!response.ok) {

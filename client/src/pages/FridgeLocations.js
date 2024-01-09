@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
 
-const API_URL = process.env.API_URL
-
 export default function FridgeLocations() {
   const [getAllFridges, setGetAllFridges] = useState({ fridges: [] })
   const [isLoading, setIsLoading] = useState(true)
@@ -10,7 +8,7 @@ export default function FridgeLocations() {
   useEffect(() => {
     const fetchAllFridges = async () => {
       try {
-        const response = await fetch(`${API_URL}/fridge/getAllFridges`)
+        const response = await fetch(`/fridge/getAllFridges`)
         const data = await response.json()
         setGetAllFridges(data)
       } catch (error) {

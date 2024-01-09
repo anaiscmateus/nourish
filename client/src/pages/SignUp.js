@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Terms from "../components/Terms"
 
-const API_URL = process.env.API_URL
 
 export default function SignUp() {
   const navigate = useNavigate()
@@ -20,7 +19,7 @@ export default function SignUp() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/signup`, {
+      const response = await fetch(`/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -57,7 +56,7 @@ export default function SignUp() {
               <form
                 className="space-y-4 md:space-y-6"
                 method="POST"
-                action={API_URL+"/signup"}
+                action="/signup"
                 onSubmit={handleSignUp}
               >
                 <div>

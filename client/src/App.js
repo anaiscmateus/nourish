@@ -12,15 +12,13 @@ import OurTeam from "./pages/OurTeam"
 import NavbarComponent from "./components/Navbar"
 import ProtectedRoute from './components/ProtectedRoute';
 
-const API_URL = process.env.API_URL
-
 
 // Routes for pages
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    fetch(`${API_URL}/login`, {
+    fetch(`/login`, {
       method: "GET",
       credentials: "include"
     })

@@ -37,14 +37,14 @@ app.use(express.json())
 const FE_URL = process.env.FE_URL
 
 // Cors errors
-app.use(
-  cors({
-    origin: FE_URL, // Allow requests only from port 3000 (NEED TO CHANGE WHEN WE HOST TO FE URL)
-    methods: "GET,POST,PUT,DELETE", // Allow specific HTTP methods
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"] // Allow specific headers
-  })
-)
+// app.use(
+//   cors({
+//     origin: FE_URL, // Allow requests only from port 3000 (NEED TO CHANGE WHEN WE HOST TO FE URL)
+//     methods: "GET,POST,PUT,DELETE", // Allow specific HTTP methods
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Authorization"] // Allow specific headers
+//   })
+// )
 
 // Logging
 app.use(logger("dev"))

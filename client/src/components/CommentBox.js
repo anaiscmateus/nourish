@@ -1,8 +1,6 @@
 import { Button, Textarea } from "flowbite-react"
 import { useState } from "react"
 
-const API_URL = process.env.API_URL
-
 export default function CommentBox({ postId, onNewComment }) {
   const [comment, setComment] = useState("")
 
@@ -14,7 +12,7 @@ export default function CommentBox({ postId, onNewComment }) {
     }
 
     try {
-      const response = await fetch(`${API_URL}/post/addComment/${postId}`, {
+      const response = await fetch(`/post/addComment/${postId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

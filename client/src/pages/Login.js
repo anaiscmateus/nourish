@@ -1,8 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-const API_URL = process.env.API_URL
-
 export default function Login() {
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState("")
@@ -16,7 +14,7 @@ export default function Login() {
     }
 
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(`/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -61,7 +59,7 @@ export default function Login() {
               <form
                 className="space-y-4 md:space-y-6"
                 method="POST"
-                action={API_URL+"/login"}
+                action="/login"
                 onSubmit={handleSignIn}
               >
                 <div>
